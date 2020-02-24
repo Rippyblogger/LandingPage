@@ -37,7 +37,7 @@ for (let i = 0; i < sections.length; i++) {
 
     //logic borrowed from https://gist.github.com/jjmu15/8646226
     const isInViewport = function(section) {
-        var bounding = currentSection.getBoundingClientRect();
+        var rect = currentSection.getBoundingClientRect();
         return (
             rect.top >= 0 &&
             rect.left >= 0 &&
