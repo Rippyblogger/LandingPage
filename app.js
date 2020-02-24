@@ -20,9 +20,10 @@
 //Get list of all sections, declare the first unordered list to be used as a container for li nodes later.
 const sections = document.querySelectorAll("section");
 const uls = document.querySelector("ul");
+
 function newClass(sectionsList) {
-  //console.log(sectionsList.classList);
-  sectionsList.classList.add("active");
+    //console.log(sectionsList.classList);
+    sectionsList.classList.add("active");
 }
 //loop through all the sections, get data attribute, use as list text
 for (let i = 0; i < sections.length; i++) {
@@ -35,40 +36,43 @@ for (let i = 0; i < sections.length; i++) {
 
     const isInViewport = function(section) {
         var bounding = currentSection.getBoundingClientRect();
-            return (
-                bounding.top >= 0 &&
-                bounding.left >= 0 &&
-                bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
+        return (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
     };
-  
-  
-//test for presence of active class in all li elements. If present, remove from sibling elements.
-     
-  
+
+
+    //test for presence of active class in all li elements. If present, remove from sibling elements.
+
+
     sectionsList.onclick = function() {
         let test = document.querySelector('.active');
-        if (test !== null){
+        if (test !== null) {
             test.classList.remove('active');
-    }
-    currentSection = document.querySelector(`[data-nav="${this.id}"]`);
-    
-    
-
-     // on scroll add active class
-     window.addEventListener('scroll', function(event) {
-        if (isInViewport(currentSection)) {
-            currentSection.classList.add('active'); 
         }
-    }, false);
+        currentSection = document.querySelector(`[data-nav="${this.id}"]`);
 
-    newClass(this);
+
+
+        // on scroll add active class
+        window.addEventListener('scroll', function(event) {
+            if (isInViewport(currentSection)) {
+                currentSection.classList.add('active'); 
+            } else {
+                currentSection.classList.remove('active'); 
+
+            }
+        }, false);
+
+        newClass(this);
 
 
     };
     uls.appendChild(sectionsList);
-  
+
 }
 /**
  * End Global Variables
@@ -104,7 +108,7 @@ for (let i = 0; i < sections.length; i++) {
  * End Global Variables
  * Start Helper Functions
  * 
-*/
+ */
 
 
 
@@ -112,7 +116,7 @@ for (let i = 0; i < sections.length; i++) {
  * End Helper Functions
  * Begin Main Functions
  * 
-*/
+ */
 
 // build the nav
 
@@ -127,12 +131,10 @@ for (let i = 0; i < sections.length; i++) {
  * End Main Functions
  * Begin Events
  * 
-*/
+ */
 
 // Build menu 
 
 // Scroll to section on link click
 
 // Set sections as active
-
-
