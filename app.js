@@ -34,13 +34,15 @@ for (let i = 0; i < sections.length; i++) {
     sectionsList.textContent = sectionData;
     sectionsList.innerHTML = `<a onClick="newClass" href="#${sections[i].id}">${sections[i].id}</a>`;
 
+
+    //logic borrowed from https://gist.github.com/jjmu15/8646226
     const isInViewport = function(section) {
         var bounding = currentSection.getBoundingClientRect();
         return (
-            bounding.top >= 0 &&
-            bounding.left >= 0 &&
-            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || html.clientHeight) &&
+            rect.right <= (window.innerWidth || html.clientWidth)
         );
     };
 
@@ -57,7 +59,7 @@ for (let i = 0; i < sections.length; i++) {
 
 
 
-        // on scroll add active class
+        // on scroll add active class and remove from sections not in viewport
         window.addEventListener('scroll', function(event) {
             if (isInViewport(currentSection)) {
                 currentSection.classList.add('active'); 
@@ -74,67 +76,3 @@ for (let i = 0; i < sections.length; i++) {
     uls.appendChild(sectionsList);
 
 }
-/**
- * End Global Variables
- * Start Helper Functions
- *
- */
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
-
-// build the nav
-
-// Add class 'active' to section when near top of viewport
-
-// Scroll to anchor ID using scrollTO event
-
-/**
- * End Main Functions
- * Begin Events
- *
- */
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
- */
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
- */
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
- */
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
