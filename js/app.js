@@ -20,6 +20,8 @@
 //Get list of all sections, declare the first unordered list to be used as a container for li nodes later.
 const sections = document.querySelectorAll("section");
 const uls = document.querySelector("ul");
+currentSection = document.querySelector(`[data-nav="${this.id}"]`);
+
 
 function newClass(sectionsList) {
     //console.log(sectionsList.classList);
@@ -47,7 +49,7 @@ for (let i = 0; i < sections.length; i++) {
     };
 
 
-    //test for presence of active class in all li elements. If present, remove from sibling elements.
+    //test for presence of active class in all li elements. If present, remove from sibling elezments.
 
 
     sectionsList.onclick = function() {
@@ -55,24 +57,25 @@ for (let i = 0; i < sections.length; i++) {
         if (test !== null) {
             test.classList.remove('active');
         }
-        currentSection = document.querySelector(`[data-nav="${this.id}"]`);
 
-
-
-        // on scroll add active class and remove from sections not in viewport
-        window.addEventListener('scroll', function(event) {
-            if (isInViewport(currentSection)) {
-                currentSection.classList.add('active'); 
-            } else {
-                currentSection.classList.remove('active'); 
-
-            }
-        }, false);
 
         newClass(this);
 
 
     };
+    // on scroll add active class and remove from sections not in viewport
+    document.addEventListener("scroll", () => {
+        for(const sec in sections){
+            if isInViewport(currentSection){
+                section.classList.add("active");
+            }else{
+                section.classList.remove("active");
+            }
+        }
+        
+      });
+
     uls.appendChild(sectionsList);
 
 }
+
