@@ -76,11 +76,13 @@ section {
 }
 
 .navbar__menu ul {
-    padding-left: 0;
-    margin: 0;
-    text-align: center;
-    background: rgb(10, 23, 40);
-    text-decoration: none;
+    display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+  margin: 0;
+  text-align: right;
+  line-height: 2rem;
+  background: rgb(10, 23, 40);
 }
 
 .navbar__menu li {
